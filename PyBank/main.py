@@ -41,13 +41,14 @@ with open(csv_path) as csvfile:
         sum_pl = (sum(All_changes_in_pl) - first_pl)
         current_pl = final_pl
 
-        average_change = (sum_pl/total_months)
+    #average_change = (sum_pl/(total_months - 1))
 
         greatest_increase_profits = max(All_changes_in_pl)
         greatest_decrease_profits = min(All_changes_in_pl)
 
         greatest_increase_date = months_index[All_changes_in_pl.index(greatest_increase_profits)]
         greatest_decrease_date = months_index[All_changes_in_pl.index(greatest_decrease_profits)]
+    average_change = (sum_pl/(total_months - 1))
 print(All_changes_in_pl)
 # print(sum_pl)
 print(first_pl)
