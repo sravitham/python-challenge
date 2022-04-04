@@ -2,7 +2,6 @@
 import os
 import csv
 
-
 # Read in a .csv file
 csv_path = "PyBank/Resources/budget_data.csv"
 
@@ -17,12 +16,13 @@ with open(csv_path) as csvfile:
     #To track of all the changes in profit and losses between each month
     All_changes_in_pl = []
 
-
+    #Initializing Variables
     total_months = 0
     total_profitloss = 0
     total_change_in_pl = 0
     current_pl = 0
 
+    #Calculations for each row
     for row in csv_reader:
         total_months += 1
 
@@ -41,24 +41,23 @@ with open(csv_path) as csvfile:
         sum_pl = (sum(All_changes_in_pl) - first_pl)
         current_pl = final_pl
 
-    #average_change = (sum_pl/(total_months - 1))
+    #Final Calculations for Analysis
+    greatest_increase_profits = max(All_changes_in_pl)
+    greatest_decrease_profits = min(All_changes_in_pl)
 
-        greatest_increase_profits = max(All_changes_in_pl)
-        greatest_decrease_profits = min(All_changes_in_pl)
+    greatest_increase_date = months_index[All_changes_in_pl.index(greatest_increase_profits)]
+    greatest_decrease_date = months_index[All_changes_in_pl.index(greatest_decrease_profits)]
 
-        greatest_increase_date = months_index[All_changes_in_pl.index(greatest_increase_profits)]
-        greatest_decrease_date = months_index[All_changes_in_pl.index(greatest_decrease_profits)]
     average_change = (sum_pl/(total_months - 1))
-print(All_changes_in_pl)
-# print(sum_pl)
-print(first_pl)
+print("Financial Analysis")
+print("-----------------------------------")
 print(f"Total Months: {str(total_months)}")
 
-print(f"Total Profits: ${total_profitloss}")
+print(f"Total: ${total_profitloss}")
 
 print(f"Average Change: ${average_change}")
 
-print(f"Greatest Increase in Profits: {greatest_increase_date} ${greatest_increase_profits}")
+print(f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase_profits})")
 
-print(f"Greatest Decrease in Profits: {greatest_decrease_date} ${greatest_decrease_profits}")
+print(f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease_profits})")
 
