@@ -50,6 +50,8 @@ with open(csv_path) as csvfile:
 
     average_change = (sum_pl/(total_months - 1))
     average_change = round(average_change,2)
+
+#print final calculations in terminal
 print("Financial Analysis")
 print("-----------------------------------")
 print(f"Total Months: {str(total_months)}")
@@ -62,6 +64,7 @@ print(f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_incre
 
 print(f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease_profits})")
 
+#print output in a textfile
 with open('PyBank\Analysis\Analysis.txt', 'w') as text:
     text.write("Financial Analysis\n")
     text.write("-----------------------------------\n")
