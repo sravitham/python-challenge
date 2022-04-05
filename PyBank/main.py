@@ -49,6 +49,7 @@ with open(csv_path) as csvfile:
     greatest_decrease_date = months_index[All_changes_in_pl.index(greatest_decrease_profits)]
 
     average_change = (sum_pl/(total_months - 1))
+    average_change = round(average_change,2)
 print("Financial Analysis")
 print("-----------------------------------")
 print(f"Total Months: {str(total_months)}")
@@ -61,3 +62,15 @@ print(f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_incre
 
 print(f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease_profits})")
 
+with open('PyBank\Analysis\Analysis.txt', 'w') as text:
+    text.write("Financial Analysis\n")
+    text.write("-----------------------------------\n")
+    text.write(f"Total Months: {str(total_months)}\n")
+
+    text.write(f"Total: ${total_profitloss}\n")
+
+    text.write(f"Average Change: ${average_change}\n")
+
+    text.write(f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase_profits})\n")
+
+    text.write(f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease_profits})\n")
